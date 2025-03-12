@@ -33,6 +33,11 @@ void	buy( int ressource_ID )
 	Resource	new_ressource = get_ressource_form_id( ressource_ID );
 	ressources_buyed[ ressources_buyed_len ] = new_ressource;
 	ressources_buyed[ ressources_buyed_len ].isObsolete = 0;
+
+	// SET ACTIVE IF RW > 0
+	if ( ressources_buyed[ ressources_buyed_len ].RW > 0 )
+		ressources_buyed[ ressources_buyed_len ].isActive = 1;
+
 	ressources_buyed_len++;
 
 	ressources_buyed[current_turn];
