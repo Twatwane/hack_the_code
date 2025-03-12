@@ -22,6 +22,7 @@ typedef struct {
 	int RU;// RU - Number of buildings the resource can power per active turn
     char RT;// RT - Special effect type (A, B, C, D, E, or X)
     int RE;// RE - Special effect impact or accumulator capacity
+    int isActive;
 } Resource;
 
 extern Resource resources[100]; // Array for storing resources (adjust size as needed)
