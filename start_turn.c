@@ -36,17 +36,18 @@ void	buy( int ressource_ID )
 	ressources_buyed_len++;
 
 	ressources_buyed[current_turn];
+	nb_ressources_buyed_current_turn++;
 }
 
-void	put_output( int ressources_buyed_current_turn, int* IDS_buyed_current_turn )
+void	put_output( int nb_ressources_buyed_current_turn, int* IDS_buyed_current_turn )
 {
-	printf("%i %i", T, ressources_buyed_current_turn);
+	printf("%i %i", current_turn, nb_ressources_buyed_current_turn);
 
-	for (int i = 0; i < ressources_buyed_current_turn; i++)
+	for (int i = 0; i < nb_ressources_buyed_current_turn; i++)
 	{
 		printf("%i", IDS_buyed_current_turn[i]);
 
-		if (i != ressources_buyed_current_turn)
+		if (i != nb_ressources_buyed_current_turn)
 		{
 			printf(" ");
 		}
@@ -56,16 +57,14 @@ void	put_output( int ressources_buyed_current_turn, int* IDS_buyed_current_turn 
 void	setup_current_turn(void)
 {
 	int	IDS_buyed_current_turn[1000];
-	ressources_buyed[current_turn] = 0;
+	nb_ressources_buyed_current_turn = 0;
 
 	// STRATEGIE D ACHAT ETC
 
 	// exemples random pour acheter la ressource avec RI=1
 	int id_to_buy = 1;
-	IDS_buyed_current_turn[ ressources_buyed_current_turn ] = id_to_buy;
+	IDS_buyed_current_turn[ nb_ressources_buyed_current_turn ] = id_to_buy;
 	buy( id_to_buy );
-
-
 
 }
 

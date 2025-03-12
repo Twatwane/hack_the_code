@@ -40,6 +40,9 @@ void payMaintenance () {
 }
 
 void loop() {
+
+	current_turn = 1;
+
 	for (int i = 0; i < T; i++) {
 		setup_current_turn(); // rempli buyed avec les ressources a acheter
 		active(); // set les ressources a actives ou non et les update
