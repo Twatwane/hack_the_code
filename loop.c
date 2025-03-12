@@ -21,7 +21,7 @@ void active() {
 				ressources_buyed[i].RW = ressources_buyed_infos[i].RW;
 			}
 		}
-		ressources_buyed[i].isActive = ressources_buyed[i].RL > 0;
+		ressources_buyed[i].isActive = ressources_buyed[i].RW > 0;
 	}
 }
 
