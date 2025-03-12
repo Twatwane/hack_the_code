@@ -55,10 +55,10 @@ void c() {
         if (resources_buyed[i].RT == 'C') {
             for (int j = 0; j < R; j++) {
                 int adjustment = (resources_buyed[j].RL * resources_buyed[i].RE) / 100;
-                if (resources[i].RE > 0) { // Green Resource
-                    resources[j].RL += adjustment;
+                if (resources_buyed[i].RE > 0) { // Green Resource
+                    resources_buyed[j].RL += adjustment;
                 } else { // Non-Green Resource
-                    resources[j].RL = (resources[j].RL - adjustment < 1) ? 1 : resources[j].RL - adjustment;
+                    resources_buyed[j].RL = (resources_buyed[j].RL - adjustment < 1) ? 1 : resources_buyed[j].RL - adjustment;
                 }
             }
         }
