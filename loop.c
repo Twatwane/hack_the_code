@@ -13,7 +13,7 @@ void active() {
 			ressources_buyed[i].RW--;
 		}
 		else {
-			if (ressources_buyed[i].RM > 0) {
+			if (ressources_buyed[i].RM > 1) {
 				ressources_buyed[i].RM--;
 			}
 			else {
