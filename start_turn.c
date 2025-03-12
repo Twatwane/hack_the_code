@@ -24,6 +24,8 @@ void	buy( ressource_ID )
 	Resource	new_ressource = get_ressource_form_id( ressource_ID );
 
 	resources_buyed[ ressources_buyed_len ] = new_ressource;
+	resources_buyed[ ressources_buyed_len ].isObsolete = 0;
+	ressources_buyed_len++;
 }
 
 void	setup_current_turn(void)

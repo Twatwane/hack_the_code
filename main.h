@@ -23,6 +23,7 @@ typedef struct {
     char RT;// RT - Special effect type (A, B, C, D, E, or X)
     int RE;// RE - Special effect impact or accumulator capacity
     int isActive;
+	int isObsolete;
 } Resource;
 
 // - - - INIT
