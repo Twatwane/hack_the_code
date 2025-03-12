@@ -34,12 +34,11 @@ void parsing();
 
 
 // - - - DURING GAME
-// - - - DURING GAME
 extern Resource ressources_buyed[100];
 extern Resource ressources_buyed_infos[100];
 extern int ressources_buyed_len;
 extern int	current_turn;
-
+extern int	nb_ressources_buyed_current_turn;
 
 // start_turn.c
 void	setup_current_turn(void);
@@ -93,3 +92,5 @@ void e(int* surplus, int* deficit);
 // ----------------------------------------------------
 // Base Resource (RT = 'X') has no impact on the game mechanics.
 void x();
+
+void	loop();

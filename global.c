@@ -16,3 +16,4 @@ Resource ressources_buyed[100];
 Resource ressources_buyed_infos[100];
 int ressources_buyed_len = 0;
 int	current_turn = 0;
+int	nb_ressources_buyed_current_turn = 0;
