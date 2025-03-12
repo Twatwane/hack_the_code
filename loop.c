@@ -46,9 +46,9 @@ void loop() {
 
 	for (int i = 0; i < T; i++) {
 		setup_current_turn(); // rempli buyed avec les ressources a acheter
-		active(); // set les ressources a actives ou non et les update
 		payMaintenance();
 		D += get_profit(get_powered_buildings() ,i); //calcul les profits
+		active(); // set les ressources a actives ou non et les update
 
 		if (DEBUG_MODE)
 			print_status();
