@@ -35,6 +35,7 @@ void	print_status( void )
 
 	printf("END OF TURN n°%i\n", current_turn);
 	printf("MONEY (D) = %i\n", D);
+	printf("POWERED BUILDINS : %i\n", get_powered_buildings());
 	printf("RESSOURCES WE HAVE :\n");
 
 	for (int i = 0; i < ressources_buyed_len; i++)
