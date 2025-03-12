@@ -42,6 +42,9 @@ extern int ressources_buyed_len;
 extern int	current_turn;
 extern int	nb_ressources_buyed_current_turn;
 
+//
+void apply_turn_effects(int turn_index);
+
 // start_turn.c
 void	setup_current_turn(void);
 

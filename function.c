@@ -105,3 +105,49 @@ void e(int* surplus, int* deficit) {
 void x() {
     // No special logic needed for base resources
 }
+
+#include "main.h"
+
+// Function to apply effects based on purchased resources
+void apply_effects(int* powered_buildings, int* surplus, int* deficit) {
+    for (int i = 0; i < ressources_buyed_len; i++) {
+        switch (ressources_buyed[i].RT) {
+            case 'A':
+                a(powered_buildings); // Smart Meter (adjusts powered buildings)
+                break;
+            case 'B':
+                b(); // Distribution Facility (adjusts TM and TX thresholds)
+                break;
+            case 'C':
+                c(); // Maintenance Plan (adjusts lifespan of resources)
+                break;
+            case 'D':
+                d(); // Renewable Plant (adjusts profit per powered building)
+                break;
+            case 'E':
+                e(surplus, deficit); // Accumulator (manages surplus storage)
+                break;
+            case 'X':
+                x(); // Base Resource (no effect)
+                break;
+            default:
+                if (DEBUG_MODE) {
+                    printf("[DEBUG] Unknown resource effect type: %c\n", ressources_buyed[i].RT);
+                }
+                break;
+        }
+    }
+}
+
+// Example of integration with turn logic
+void apply_turn_effects(int turn_index) {
+    int powered_buildings = get_powered_buildings();
+    int surplus = 0; // Initialize surplus
+    int deficit = 0; // Initialize deficit
+
+    // Apply effects from active resources
+    apply_effects(&powered_buildings, &surplus, &deficit);
+
+    // Calculate profit after applying effects
+    D += get_profit(powered_buildings, turn_index);
+}
