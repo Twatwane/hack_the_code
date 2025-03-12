@@ -41,7 +41,7 @@ void	buy( int ressource_ID )
 
 void	put_output( int nb_ressources_buyed_current_turn, int* IDS_buyed_current_turn )
 {
-	printf("%i %i", current_turn, nb_ressources_buyed_current_turn);
+	printf("%i %i ", current_turn, nb_ressources_buyed_current_turn);
 
 	for (int i = 0; i < nb_ressources_buyed_current_turn; i++)
 	{
@@ -52,6 +52,7 @@ void	put_output( int nb_ressources_buyed_current_turn, int* IDS_buyed_current_tu
 			printf(" ");
 		}
 	}
+	printf("\n");
 }
 
 void	setup_current_turn(void)
@@ -62,9 +63,11 @@ void	setup_current_turn(void)
 	// STRATEGIE D ACHAT ETC
 
 	// exemples random pour acheter la ressource avec RI=1
-	int id_to_buy = 1;
+	int id_to_buy = 2;
 	IDS_buyed_current_turn[ nb_ressources_buyed_current_turn ] = id_to_buy;
 	buy( id_to_buy );
+
+	put_output(nb_ressources_buyed_current_turn, IDS_buyed_current_turn);
 
 }
 

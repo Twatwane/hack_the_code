@@ -41,6 +41,7 @@ void payMaintenance () {
 
 void loop() {
 
+	printf("\nSTART SIMULATION (output) :\n");
 	current_turn = 1;
 
 	for (int i = 0; i < T; i++) {
@@ -49,7 +50,7 @@ void loop() {
 		payMaintenance();
 		D += get_profit(get_powered_buildings() ,i); //calcul les profits
 
-		print_status();
+		// print_status();
 		current_turn++;
 	}
 }
