@@ -100,3 +100,4 @@ void x();
 
 void	loop();
 void	print_status( void );
+int rentability(Resource r, int day, int start);

@@ -5,26 +5,26 @@ int get_profit(int powered_buildings, int turn_index)
 
     if (powered_buildings < turns[turn_index].TM)
 	{
-		if (DEBUG_MODE)
-			printf("profit calcul : NO PROFIT\n");
+		// if (DEBUG_MODE)
+		// 	printf("profit calcul : NO PROFIT\n");
 
         return 0; // No profit if below TM
     }
 
 	if (powered_buildings < turns[turn_index].TX)
 	{
-		if (DEBUG_MODE)
-		{
-			printf("profit calcul : %i * %i\n", powered_buildings, turns[turn_index].TR);
-		}
+		// if (DEBUG_MODE)
+		// {
+		// 	printf("profit calcul : %i * %i\n", powered_buildings, turns[turn_index].TR);
+		// }
 
 		return powered_buildings * turns[turn_index].TR;
 	}
 
-	if (DEBUG_MODE)
-	{
-		printf("profit calcul : %i * %i\n", turns[turn_index].TX, turns[turn_index].TR);
-	}
+	// if (DEBUG_MODE)
+	// {
+	// 	printf("profit calcul : %i * %i\n", turns[turn_index].TX, turns[turn_index].TR);
+	// }
     return turns[turn_index].TX * turns[turn_index].TR;
 }
 
