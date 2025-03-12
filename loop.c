@@ -2,26 +2,26 @@
 
 void active() {
 	for (int i = 0; i < ressources_buyed_len; i++) {
-		if (resources_buyed[i].isObsolete) {
+		if (ressources_buyed[i].isObsolete) {
 			return ;
 		}
-		resources_buyed[i].RL--;
-		if (resources_buyed[i].RL == 0) {
-			resources_buyed[i].isObsolete = 1;
+		ressources_buyed[i].RL--;
+		if (ressources_buyed[i].RL == 0) {
+			ressources_buyed[i].isObsolete = 1;
 		}
-		if (resources_buyed[i].RW > 0) {
-			resources_buyed[i].RW--;
+		if (ressources_buyed[i].RW > 0) {
+			ressources_buyed[i].RW--;
 		}
 		else {
-			if (resources_buyed[i].RM > 0) {
-				resources_buyed[i].RM--;
+			if (ressources_buyed[i].RM > 0) {
+				ressources_buyed[i].RM--;
 			}
 			else {
-				resources_buyed[i].RM = resources_buyed_infos[i].RM;
-				resources_buyed[i].RW = resources_buyed_infos[i].RW;
+				ressources_buyed[i].RM = ressources_buyed_infos[i].RM;
+				ressources_buyed[i].RW = ressources_buyed_infos[i].RW;
 			}
 		}
-		resources_buyed[i].isActive = resources_buyed[i].RL > 0;
+		ressources_buyed[i].isActive = ressources_buyed[i].RL > 0;
 	}
 }
 
