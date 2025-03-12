@@ -35,4 +35,6 @@ void parsing();
 // - - - DURING GAME
 // - - - DURING GAME
 extern Resource resources_buyed[100];
+extern Resource resources_buyed_infos[100];
+extern int ressources_buyed_len;
 extern int	current_turn;

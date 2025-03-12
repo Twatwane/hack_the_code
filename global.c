@@ -13,4 +13,6 @@ Turn turns[100]; // Array for storing turns (adjust size as needed)
 
 // - - - DURING GAME
 Resource resources_buyed[100];
+Resource resources_buyed_infos[100];
+int ressources_buyed_len;
 int	current_turn;
