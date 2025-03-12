@@ -106,8 +106,6 @@ void x() {
     // No special logic needed for base resources
 }
 
-#include "main.h"
-
 // Function to apply effects based on purchased resources
 void apply_effects(int* powered_buildings, int* surplus, int* deficit) {
     for (int i = 0; i < ressources_buyed_len; i++) {
