@@ -71,14 +71,14 @@ int get_best_id() {
 	for (int i = 0; i < R; i++) {
 		if (D > ressources_available[i].RA + ressources_available[i].RP) {
 			renta = rentability(ressources_available[i], T - current_turn, current_turn - 1);
-			printf("renta %d, id %d\n", renta, i + 1);
+			//printf("renta %d, id %d\n", renta, i + 1);
 			if (renta > benef && renta > 0) {
 				benef = renta;
 				best_id = i + 1;
 			}
 		}
 	}
-	printf("bestid %d\n",best_id);
+	//printf("bestid %d\n",best_id);
 	return best_id;
 }
 
