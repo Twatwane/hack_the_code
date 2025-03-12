@@ -94,3 +94,4 @@ void e(int* surplus, int* deficit);
 void x();
 
 void	loop();
+void	print_status( void );
