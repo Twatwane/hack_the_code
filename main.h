@@ -25,7 +25,14 @@ typedef struct {
     int isActive;
 } Resource;
 
-extern Resource resources[100]; // Array for storing resources (adjust size as needed)
+// - - - INIT
+extern Resource resources_available[100]; // Array for storing resources (adjust size as needed)
 extern Turn turns[100]; // Array for storing turns (adjust size as needed)
 
 void parsing();
+
+
+// - - - DURING GAME
+// - - - DURING GAME
+extern Resource resources_buyed[100];
+extern int	current_turn;
