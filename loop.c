@@ -3,10 +3,11 @@
 void active() {
 	for (int i = 0; i < ressources_buyed_len; i++) {
 		if (ressources_buyed[i].isObsolete) {
-			return ;
+			ressources_buyed[i].isActive = 0;
+			continue ;
 		}
 		ressources_buyed[i].RL--;
-		if (ressources_buyed[i].RL == 0) {
+		if (ressources_buyed[i].RL <= 0) {
 			ressources_buyed[i].isObsolete = 1;
 		}
 		if (ressources_buyed[i].RW > 0) {
@@ -30,7 +31,7 @@ void payMaintenance () {
 	
 	for (int i = 0; i < ressources_buyed_len; i++) {
 		if (ressources_buyed[i].isObsolete) {
-			return ;
+			continue ;
 		}
 		D -= ressources_buyed[i].RP;
 		if (D < 0) {
