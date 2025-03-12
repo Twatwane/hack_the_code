@@ -38,5 +38,3 @@ void	setup_current_turn(void)
 
 
 }
-
-

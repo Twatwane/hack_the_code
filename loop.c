@@ -28,7 +28,8 @@ void active() {
 void loop() {
 	for (int i = 0; i < T; i++) {
 		setup_current_turn(); // rempli buyed avec les ressources a acheter
-		active(); // set les ressources a actives ou non
+		active(); // set les ressources a actives ou non et les update
+		payMaintenance();
 		profit(); //calcul les profits
 	}
 }
