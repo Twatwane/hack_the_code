@@ -1,0 +1,45 @@
+#include "main.h"
+
+extern Resource resources[100]; // Array for storing resources (adjust size as needed)
+extern Turn turns[100]; // Array for storing turns (adjust size as needed)
+
+// Parsing function
+void parsing() {
+    FILE *file = fopen("0-demo.txt", "r");
+    if (!file) {
+        perror("Error opening file");
+        exit(EXIT_FAILURE);
+    }
+
+    fscanf(file, "%d %d %d", &D, &R, &T); // Read initial values
+
+    // Reading resources
+    for (int i = 0; i < R; i++) {
+        fscanf(file, "%d %d %d %d %d %d %d %c %d", 
+               &resources[i].RI, &resources[i].RA, &resources[i].RP, 
+               &resources[i].RW, &resources[i].RM, &resources[i].RL, 
+               &resources[i].RU, &resources[i].RT, &resources[i].RE);
+    }
+
+    // Reading turns
+    for (int i = 0; i < T; i++) {
+        fscanf(file, "%d %d %d", &turns[i].TM, &turns[i].TX, &turns[i].TR);
+    }
+
+    fclose(file);
+
+    // Display extracted data for verification
+    printf("D: %d, R: %d, T: %d\n", D, R, T);
+    printf("Resources:\n");
+    for (int i = 0; i < R; i++) {
+        printf("%d %d %d %d %d %d %d %c %d\n", 
+               resources[i].RI, resources[i].RA, resources[i].RP,
+               resources[i].RW, resources[i].RM, resources[i].RL,
+               resources[i].RU, resources[i].RT, resources[i].RE);
+    }
+
+    printf("Turns:\n");
+    for (int i = 0; i < T; i++) {
+        printf("%d %d %d\n", turns[i].TM, turns[i].TX, turns[i].TR);
+    }
+}
