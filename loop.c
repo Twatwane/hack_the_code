@@ -50,7 +50,9 @@ void loop() {
 		payMaintenance();
 		D += get_profit(get_powered_buildings() ,i); //calcul les profits
 
-		// print_status();
+		if (DEBUG_MODE)
+			print_status();
+
 		current_turn++;
 	}
 }

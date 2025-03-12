@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <ctype.h>
 
+extern int DEBUG_MODE;
+
 // Game variables
 extern int D; // Initial capital availability
 extern int R; // Total number of available resources

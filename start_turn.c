@@ -67,7 +67,8 @@ void	setup_current_turn(void)
 	IDS_buyed_current_turn[ nb_ressources_buyed_current_turn ] = id_to_buy;
 	buy( id_to_buy );
 
-	put_output(nb_ressources_buyed_current_turn, IDS_buyed_current_turn);
+	if (!DEBUG_MODE)
+		put_output(nb_ressources_buyed_current_turn, IDS_buyed_current_turn);
 
 }
 
