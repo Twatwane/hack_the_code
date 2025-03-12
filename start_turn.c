@@ -35,15 +35,41 @@ void	buy( ressource_ID )
 	ressources_buyed[ ressources_buyed_len ] = new_ressource;
 	ressources_buyed[ ressources_buyed_len ].isObsolete = 0;
 	ressources_buyed_len++;
+
+	ressources_buyed_current_turn++;
+}
+
+void	put_output( int ressources_buyed_current_turn, int* IDS_buyed_current_turn )
+{
+	printf("%i %i", T, ressources_buyed_current_turn);
+
+	for (int i = 0; i < ressources_buyed_current_turn; i++)
+	{
+		printf("%i", IDS_buyed_current_turn[i]);
+
+		if (i != ressources_buyed_current_turn)
+		{
+			printf(" ");
+		}
+	}
 }
 
 void	setup_current_turn(void)
 {
+	int	IDS_buyed_current_turn[1000];
+	ressources_buyed_current_turn = 0;
 
 	// STRATEGIE D ACHAT ETC
 
-	// exemples random
-	buy( 1 );
+	// exemples random pour acheter la ressource avec RI=1
+	int id_to_buy = 1;
+	IDS_buyed_current_turn[ ressources_buyed_current_turn ] = id_to_buy;
+	buy( id_to_buy );
+
 
 
 }
+
+// 4 2 2 2
+// TOUR 4, BUYED 2 things, ID2 and ID2
+// = T, ressources_buyed_current_turn, ID, ID
