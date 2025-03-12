@@ -68,7 +68,7 @@ int totalRP() {
 	int t = 0;
 	for (int i = 0; i < ressources_buyed_len; i++) {
 		if(!ressources_buyed[i].isObsolete) {
-			t += ressources_buyed[i].RP;
+			t += ressources_buyed[i].RP * ressources_buyed[i].RL;
 		}
 	}
 	return t;
@@ -79,7 +79,7 @@ int get_best_id() {
 	int benef = 0;
 	int renta = 0;
 	for (int i = 0; i < R; i++) {
-		if (D > ressources_available[i].RA + ressources_available[i].RA + totalRP() * (T / 5)) {
+		if (D > ressources_available[i].RA + (ressources_available[i].RL * ressources_available[i].RP + totalRP()) * 2) {
 			renta = rentability(ressources_available[i], T - current_turn, current_turn - 1);
 			//printf("renta %d, id %d\n", renta, i + 1);
 			if (renta > benef && renta > 0) {
