@@ -6,17 +6,17 @@ void parsing() {
 
     fscanf(file, "%d %d %d", &D, &R, &T); // Read initial values
 
-    // Reading resources
+    // Reading resources_available
     for (int i = 0; i < R; i++) {
         fscanf(file, "%d %d %d %d %d %d %d %c", 
-               &resources[i].RI, &resources[i].RA, &resources[i].RP, 
-               &resources[i].RW, &resources[i].RM, &resources[i].RL, 
-               &resources[i].RU, &resources[i].RT);
+               &resources_available[i].RI, &resources_available[i].RA, &resources_available[i].RP, 
+               &resources_available[i].RW, &resources_available[i].RM, &resources_available[i].RL, 
+               &resources_available[i].RU, &resources_available[i].RT);
 
-        if (resources[i].RT == 'X') {
-            resources[i].RE = -1; // If 'X', set RE to -1
+        if (resources_available[i].RT == 'X') {
+            resources_available[i].RE = -1; // If 'X', set RE to -1
         } else {
-            fscanf(file, "%d", &resources[i].RE); // Otherwise read normally
+            fscanf(file, "%d", &resources_available[i].RE); // Otherwise read normally
         }
     }
 
@@ -32,9 +32,9 @@ void parsing() {
     printf("Resources:\n");
     for (int i = 0; i < R; i++) {
         printf("%d %d %d %d %d %d %d %c %d\n", 
-               resources[i].RI, resources[i].RA, resources[i].RP,
-               resources[i].RW, resources[i].RM, resources[i].RL,
-               resources[i].RU, resources[i].RT, resources[i].RE);
+               resources_available[i].RI, resources_available[i].RA, resources_available[i].RP,
+               resources_available[i].RW, resources_available[i].RM, resources_available[i].RL,
+               resources_available[i].RU, resources_available[i].RT, resources_available[i].RE);
     }
 
     printf("Turns:\n");
