@@ -1,7 +1,7 @@
 
 #include "main.h"
 
-Resource	get_ressource_form_id( ressource_ID )
+Resource	get_ressource_form_id(int ressource_ID )
 {
 
 	int	i = 0;
@@ -28,15 +28,14 @@ Resource	get_ressource_form_id( ressource_ID )
 
 }
 
-void	buy( ressource_ID )
+void	buy( int ressource_ID )
 {
 	Resource	new_ressource = get_ressource_form_id( ressource_ID );
-
 	ressources_buyed[ ressources_buyed_len ] = new_ressource;
 	ressources_buyed[ ressources_buyed_len ].isObsolete = 0;
 	ressources_buyed_len++;
 
-	ressources_buyed_current_turn++;
+	ressources_buyed[current_turn];
 }
 
 void	put_output( int ressources_buyed_current_turn, int* IDS_buyed_current_turn )
@@ -57,7 +56,7 @@ void	put_output( int ressources_buyed_current_turn, int* IDS_buyed_current_turn 
 void	setup_current_turn(void)
 {
 	int	IDS_buyed_current_turn[1000];
-	ressources_buyed_current_turn = 0;
+	ressources_buyed[current_turn] = 0;
 
 	// STRATEGIE D ACHAT ETC
 

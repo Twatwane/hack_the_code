@@ -37,16 +37,17 @@ void parsing();
 // - - - DURING GAME
 extern Resource ressources_buyed[100];
 extern Resource ressources_buyed_infos[100];
-extern int ressources_buyed_len = 0;
-extern int	current_turn = 0;
+extern int ressources_buyed_len;
+extern int	current_turn;
 
 
+// start_turn.c
+void	setup_current_turn(void);
 
 
-
-//game_utility.c
+// game_utility.c
 int get_profit(int powered_building, int turn_num);
-
+int get_powered_buildings();
 
 
 // function.c

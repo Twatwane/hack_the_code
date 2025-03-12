@@ -4,7 +4,9 @@ int get_profit(int powered_buildings, int turn_index) {
     if (powered_buildings < turns[turn_index].TM) {
         return 0; // No profit if below TM
     }
-    return min(powered_buildings, turns[turn_index].TX) * turns[turn_index].TR;
+	if (powered_buildings < turns[turn_index].TX)
+		return powered_buildings * turns[turn_index].TR;
+    return turns[turn_index].TX * turns[turn_index].TR;
 }
 
 int get_powered_buildings() {

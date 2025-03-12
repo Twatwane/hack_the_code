@@ -44,6 +44,7 @@ void loop() {
 		setup_current_turn(); // rempli buyed avec les ressources a acheter
 		active(); // set les ressources a actives ou non et les update
 		payMaintenance();
-		profit(); //calcul les profits
+		D += get_profit(get_powered_buildings() ,i); //calcul les profits
+		current_turn++;
 	}
 }
