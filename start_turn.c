@@ -61,6 +61,22 @@ void	put_output( int nb_ressources_buyed_current_turn, int* IDS_buyed_current_tu
 	printf("\n");
 }
 
+int get_best_id() {
+	int best_id = 1;
+	int benef = 0;
+	int renta = 0;
+	for (int i = 0; i < R; i++) {
+		if (ressources_available[i].RA > D + ressources_available[i].RP) {
+			renta = rentability(ressources_available[i], T, 0);
+			if (renta > benef) {
+				benef = renta;
+				best_id = i;
+			}
+		}
+	}
+	return best_id;
+}
+
 void	setup_current_turn(void)
 {
 	int	IDS_buyed_current_turn[1000];
@@ -69,7 +85,7 @@ void	setup_current_turn(void)
 	// STRATEGIE D ACHAT ETC
 
 	// exemples random pour acheter la ressource avec RI=1
-	int id_to_buy = 2;
+	int id_to_buy = get_best_id();
 	IDS_buyed_current_turn[ nb_ressources_buyed_current_turn ] = id_to_buy;
 	buy( id_to_buy );
 
