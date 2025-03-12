@@ -48,6 +48,8 @@ void loop() {
 		active(); // set les ressources a actives ou non et les update
 		payMaintenance();
 		D += get_profit(get_powered_buildings() ,i); //calcul les profits
+
+		print_status();
 		current_turn++;
 	}
 }
