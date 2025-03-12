@@ -86,6 +86,10 @@ void	setup_current_turn(void)
 
 	// exemples random pour acheter la ressource avec RI=1
 	int id_to_buy = get_best_id();
+
+	if (DEBUG_MODE)
+		printf("ID to buy : %i\n", id_to_buy);
+
 	IDS_buyed_current_turn[ nb_ressources_buyed_current_turn ] = id_to_buy;
 	buy( id_to_buy );
 
