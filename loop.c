@@ -33,7 +33,7 @@ void payMaintenance () {
 		}
 		D -= ressources_buyed[i].RP;
 		if (D < 0) {
-			printf("Erreur lors de l'entretient de la ressource %d", i);
+			printf("Erreur lors de l'entretient de la ressource %d\n", i);
 		}
 	}
 
