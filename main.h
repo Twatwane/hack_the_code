@@ -24,4 +24,7 @@ typedef struct {
     int RE;// RE - Special effect impact or accumulator capacity
 } Resource;
 
+extern Resource resources[100]; // Array for storing resources (adjust size as needed)
+extern Turn turns[100]; // Array for storing turns (adjust size as needed)
+
 void parsing();

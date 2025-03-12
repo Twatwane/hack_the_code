@@ -1,8 +1,5 @@
 #include "main.h"
 
-extern Resource resources[100]; // Array for storing resources (adjust size as needed)
-extern Turn turns[100]; // Array for storing turns (adjust size as needed)
-
 // Parsing function
 void parsing() {
     FILE *file = fopen("0-demo.txt", "r");
