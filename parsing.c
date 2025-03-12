@@ -28,17 +28,20 @@ void parsing() {
     fclose(file);
 
     // Display extracted data for verification
-    printf("D: %d, R: %d, T: %d\n", D, R, T);
-    printf("Resources:\n");
-    for (int i = 0; i < R; i++) {
-        printf("%d %d %d %d %d %d %d %c %d\n", 
-               ressources_available[i].RI, ressources_available[i].RA, ressources_available[i].RP,
-               ressources_available[i].RW, ressources_available[i].RM, ressources_available[i].RL,
-               ressources_available[i].RU, ressources_available[i].RT, ressources_available[i].RE);
-    }
+	if (DEBUG_MODE)
+	{
+		printf("D: %d, R: %d, T: %d\n", D, R, T);
+		printf("Resources:\n");
+		for (int i = 0; i < R; i++) {
+			printf("%d %d %d %d %d %d %d %c %d\n", 
+				ressources_available[i].RI, ressources_available[i].RA, ressources_available[i].RP,
+				ressources_available[i].RW, ressources_available[i].RM, ressources_available[i].RL,
+				ressources_available[i].RU, ressources_available[i].RT, ressources_available[i].RE);
+		}
 
-    printf("Turns:\n");
-    for (int i = 0; i < T; i++) {
-        printf("%d %d %d\n", turns[i].TM, turns[i].TX, turns[i].TR);
-    }
+		printf("Turns:\n");
+		for (int i = 0; i < T; i++) {
+			printf("%d %d %d\n", turns[i].TM, turns[i].TX, turns[i].TR);
+		}
+	}
 }

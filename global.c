@@ -5,7 +5,7 @@ int D; // Initial capital availability
 int R; // Total number of available resources
 int T; // Number of game turns
 
-int DEBUG_MODE = 1;
+int DEBUG_MODE = 0;
 
 // - - - INIT
 Resource ressources_available[100]; // Array for storing resources (adjust size as needed)

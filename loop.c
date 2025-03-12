@@ -42,7 +42,8 @@ void payMaintenance () {
 
 void loop() {
 
-	printf("\nSTART SIMULATION (output) :\n");
+	if (DEBUG_MODE)
+		printf("\nSTART SIMULATION (output) :\n");
 	current_turn = 1;
 
 	for (int i = 0; i < T; i++) {
