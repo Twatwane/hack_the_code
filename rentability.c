@@ -1,6 +1,6 @@
 #include "main.h"
 
-void active(Resource *r) {
+void turn(Resource *r) {
 	Resource info = *r;
 	if ((*r).isObsolete) {
 		return ;
@@ -24,13 +24,23 @@ void active(Resource *r) {
 	(*r).isActive = (*r).RL > 0;
 }
 
-int rentability(Resource r, int day) { // renvoie la rentabilite d'une ressource pour un nombre de jour day
+int rentability(Resource r, int day, int start) { // renvoie la rentabilite d'une ressource pour un nombre de jour day
 	int cost = 0;
+	int profit = 0;
 	int activity = 0;
-	int durability = 0;
+	int i = 0;
 
 	cost += r.RA;
-	while (!r.isObsolete) {
-		
+	while (!r.isObsolete && i < day) {
+		if (r.isActive)
+			activity++;
+		turn(&r);
+		if (ressources_buyed[i].isObsolete) {
+			return ;
+		}
+		cost -= r.RP;
+		profit += get_profit(r.RU ,i + start);
+		i++;
 	}
+	return (profit - cost);
 }
