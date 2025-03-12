@@ -23,7 +23,7 @@ void	buy( ressource_ID )
 {
 	Resource	new_ressource = get_ressource_form_id( ressource_ID );
 
-	ressources_buyed[ ressources_buyed_len ] = new_ressource;
+	resources_buyed[ ressources_buyed_len ] = new_ressource;
 }
 
 void	setup_current_turn(void)
