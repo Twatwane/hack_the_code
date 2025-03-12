@@ -35,7 +35,8 @@ int rentability(Resource r, int day, int start) { // renvoie la rentabilite d'un
 		if (r.isActive)
 			activity++;
 		turn(&r);
-		if (r.isActive) {
+		if (r.isActive)
+		{
 			profit += get_profit(r.RU ,i + start);
 		}
 		cost -= r.RP;

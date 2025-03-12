@@ -66,11 +66,11 @@ int get_best_id() {
 	int benef = 0;
 	int renta = 0;
 	for (int i = 0; i < R; i++) {
-		if (ressources_available[i].RA > D + ressources_available[i].RP) {
+		if (D > ressources_available[i].RA + ressources_available[i].RP) {
 			renta = rentability(ressources_available[i], T, 0);
 			if (renta > benef) {
 				benef = renta;
-				best_id = i;
+				best_id = ressources_available[i].RI;
 			}
 		}
 	}
