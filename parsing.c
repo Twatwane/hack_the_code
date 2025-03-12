@@ -3,19 +3,21 @@
 // Parsing function
 void parsing() {
     FILE *file = fopen("0-demo.txt", "r");
-    if (!file) {
-        perror("Error opening file");
-        exit(EXIT_FAILURE);
-    }
 
     fscanf(file, "%d %d %d", &D, &R, &T); // Read initial values
 
     // Reading resources
     for (int i = 0; i < R; i++) {
-        fscanf(file, "%d %d %d %d %d %d %d %c %d", 
+        fscanf(file, "%d %d %d %d %d %d %d %c", 
                &resources[i].RI, &resources[i].RA, &resources[i].RP, 
                &resources[i].RW, &resources[i].RM, &resources[i].RL, 
-               &resources[i].RU, &resources[i].RT, &resources[i].RE);
+               &resources[i].RU, &resources[i].RT);
+
+        if (resources[i].RT == 'X') {
+            resources[i].RE = -1; // If 'X', set RE to -1
+        } else {
+            fscanf(file, "%d", &resources[i].RE); // Otherwise read normally
+        }
     }
 
     // Reading turns
