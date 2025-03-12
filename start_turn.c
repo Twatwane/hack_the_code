@@ -30,6 +30,9 @@ Resource	get_ressource_form_id(int ressource_ID )
 
 void	buy( int ressource_ID )
 {
+	if (ressource_ID == 0) {
+		return ;
+	} 
 	Resource	new_ressource = get_ressource_form_id( ressource_ID );
 	ressources_buyed[ ressources_buyed_len ] = new_ressource;
 	ressources_buyed_infos[ ressources_buyed_len ] = new_ressource;
@@ -62,18 +65,20 @@ void	put_output( int nb_ressources_buyed_current_turn, int* IDS_buyed_current_tu
 }
 
 int get_best_id() {
-	int best_id = 1;
+	int best_id = 0;
 	int benef = 0;
 	int renta = 0;
 	for (int i = 0; i < R; i++) {
 		if (D > ressources_available[i].RA + ressources_available[i].RP) {
-			renta = rentability(ressources_available[i], T, 0);
-			if (renta > benef) {
+			renta = rentability(ressources_available[i], T - current_turn, current_turn - 1);
+			printf("renta %d, id %d\n", renta, i + 1);
+			if (renta > benef && renta > 0) {
 				benef = renta;
-				best_id = ressources_available[i].RI;
+				best_id = i + 1;
 			}
 		}
 	}
+	printf("bestid %d\n",best_id);
 	return best_id;
 }
 
