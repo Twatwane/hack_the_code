@@ -22,6 +22,7 @@ void active() {
 			}
 		}
 		ressources_buyed[i].isActive = ressources_buyed[i].RW > 0;
+		printf("isActive%d\n", ressources_buyed[i].isActive);
 	}
 }
 
