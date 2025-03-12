@@ -8,10 +8,10 @@
 // This adjustment is proportional to the 'RE' percentage.
 void a(int* powered_buildings) {
     for (int i = 0; i < R; i++) {
-        if (resources[i].RT == 'A') {
-            int adjustment = (*powered_buildings * resources[i].RE) / 100;
+        if (resources_buyed[i].RT == 'A') {
+            int adjustment = (*powered_buildings * resources_buyed[i].RE) / 100;
 
-            if (resources[i].RE > 0) { // Green Smart Meter (increase buildings)
+            if (resources_buyed[i].RE > 0) { // Green Smart Meter (increase buildings)
                 *powered_buildings += adjustment;
             } else { // Non-Green Smart Meter (decrease buildings)
                 *powered_buildings = (*powered_buildings + adjustment < 0) 
@@ -30,10 +30,10 @@ void a(int* powered_buildings) {
 // This helps control the required and maximum possible building counts.
 void b() {
     for (int i = 0; i < R; i++) {
-        if (resources[i].RT == 'B') {
+        if (resources_buyed[i].RT == 'B') {
             for (int t = 0; t < T; t++) {
-                int adjustment = (turns[t].TM * resources[i].RE) / 100;
-                if (resources[i].RE > 0) { // Green Resource
+                int adjustment = (turns[t].TM * resources_buyed[i].RE) / 100;
+                if (resources_buyed[i].RE > 0) { // Green Resource
                     turns[t].TM += adjustment;
                     turns[t].TX += adjustment;
                 } else { // Non-Green Resource
@@ -52,9 +52,9 @@ void b() {
 // Non-Green Resource: Reduces the lifespan (RL) of new resources (min 1 turn).
 void c() {
     for (int i = 0; i < R; i++) {
-        if (resources[i].RT == 'C') {
+        if (resources_buyed[i].RT == 'C') {
             for (int j = 0; j < R; j++) {
-                int adjustment = (resources[j].RL * resources[i].RE) / 100;
+                int adjustment = (resources_buyed[j].RL * resources_buyed[i].RE) / 100;
                 if (resources[i].RE > 0) { // Green Resource
                     resources[j].RL += adjustment;
                 } else { // Non-Green Resource
@@ -72,10 +72,10 @@ void c() {
 // Non-Green Resource: Decreases profit per building (minimum 0).
 void d() {
     for (int i = 0; i < R; i++) {
-        if (resources[i].RT == 'D') {
+        if (resources_buyed[i].RT == 'D') {
             for (int t = 0; t < T; t++) {
-                int adjustment = (turns[t].TR * resources[i].RE) / 100;
-                if (resources[i].RE > 0) { // Green Resource
+                int adjustment = (turns[t].TR * resources_buyed[i].RE) / 100;
+                if (resources_buyed[i].RE > 0) { // Green Resource
                     turns[t].TR += adjustment;
                 } else { // Non-Green Resource
                     turns[t].TR = (turns[t].TR - adjustment < 0) ? 0 : turns[t].TR - adjustment;
@@ -91,7 +91,7 @@ void d() {
 // Surpluses are drawn during deficit turns to ensure the minimum TM is met.
 void e(int* surplus, int* deficit) {
     for (int i = 0; i < R; i++) {
-        if (resources[i].RT == 'E') {
+        if (resources_buyed[i].RT == 'E') {
             if (*surplus > 0) {
                 *deficit = (*deficit > *surplus) ? 0 : *deficit - *surplus;
             }
